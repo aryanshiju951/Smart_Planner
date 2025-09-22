@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Study Planner</h1>
+    <p class="lead">Add subjects, set goals, generate a daily plan and track progress. Data is saved locally.</p>
+
+    <div class="grid">
+      <!--Left column-->
+      <div>
+        <div class="card">
+          <h3>1. Add Subjects/Topics</h3>
+          <label for="subjectName">Subject name</label>
+          <input id="subjectName" type="text" placeholder="e.g., DSA" />
+
+          <label for="subjectMinutes">Goal minutes(/day)</label>
+          <input id="subjectMinutes" type="number" placeholder="e.g., 45" min="1" />
+
+          <div class="row">
+            <button id="addSubjectBtn">Add Subject</button>
+            <button id="clearAllBtn" class="secondary">Clear All</button>
+          </div>
+
+          <h3 style="margin-top:16px;">Subjects</h3>
+          <ul id="subjectsList" class="subjects"></ul>
+        </div>
+
+        <div class="card">
+          <h3>2. Auto Generate Daily Plan</h3>
+          <label for="availableMinutes">Available minutes today</label>
+          <input id="availableMinutes" type="number" placeholder="Total minutes you can study today" />
+
+          <label for="strategy">Strategy</label>
+          <select id="strategy">
+            <option value="equal">Equal distribution</option>
+            <option value="proportional">Proportional to goals</option>
+          </select>
+
+          <div class="row">
+            <button id="generateBtn">Generate Plan</button>
+            <button id="saveBtn" class="ghost">Save</button>
+          </div>
+
+          <h3 style="margin-top:12px;">Generated Plan</h3>
+          <div id="planArea" class="muted">No plan yet.</div>
+        </div>
+      </div>
+
+      <!--Right column-->
+      <div>
+        <div class="card">
+          <h3>Schedule For Today</h3>
+          <div id="todaySummary" class="small muted">No Items</div>
+          <ol id="planList" class="plan"></ol>
+
+          <div class="progress-row">
+            <div class="small">Progress</div>
+            <div class="progress"><div id="progressFill" class="fill"></div></div>
+            <div id="progressText" class="small">0%</div>
+          </div>
+
+          <div class="row">
+            <button id="markAllDone" class="secondary">Mark All Done</button>
+            <button id="resetDone" class="secondary">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Data saved in browser. Keep it Up 😎</div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
